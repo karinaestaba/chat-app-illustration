@@ -1,0 +1,224 @@
+$pale_violet: hsl(276, 100%, 81%)
+$moderate_violet: hsl(276, 55%, 52%)
+$desaturated_dark_violet: hsl(271, 15%, 43%)
+$grayish_blue: hsl(206, 6%, 79%)
+$very_dark_desaturated_violet: hsl(271, 36%, 24%)
+$dark_grayish_violet: hsl(270, 7%, 64%)
+$light_magenta: hsl(293, 100%, 63%)
+$light_violet: hsl(264, 100%, 61%)
+$white: hsl(0, 0%, 100%)
+$light_grayish_violet: hsl(270, 20%, 96%)
+$very_dark_desaturated_violet: hsl(271, 36%, 24%)
+$very_light_magenta: hsl(289, 100%, 72%)
+
+$font_size: 16px
+$font-family: 'Rubik', sans-serif
+
+*,
+*::after,
+*::before
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+  font-family: $font-family
+
+html,
+body
+  min-height: 100vh
+  height: 100%
+
+body
+  font-size: 15px
+  list-style: 1.2
+  background: purple
+
+.container
+  max-width: 1440px
+  margin: 0 auto
+  height: 100%
+  padding: 64px 64px 16px
+
+.chat
+  &-container
+    background: orange
+    border-radius: 32px
+    min-height: 79vh
+    
+    padding: 11.2px
+
+    display: grid
+    grid-template-columns: repeat(6, 1fr)
+    grid-template-rows: 1fr
+
+  &-content
+    grid-column: 1/7
+    grid-row: 1/1
+    background: aqua
+    border-radius: 20px
+
+  &-decorator
+    grid-column: 2/6
+    grid-row: 1/1
+    height: 18px
+    background: white
+    border-bottom-left-radius: 12px
+    border-bottom-right-radius: 12px
+
+    margin-left: 10px
+    margin-right: 10px
+
+  &-header
+    background: red
+    border-top-left-radius: 19px
+    border-top-right-radius: 19px
+    border-bottom-left-radius: 6px
+    border-bottom-right-radius: 6px
+
+    padding: 30px 12px 8px
+
+    display: grid
+    grid-template-areas: "c-back c-avatar c-title c-menu"
+    grid-template-columns: auto auto 1fr auto
+    gap: 6px
+    align-items: center
+
+    picture
+      grid-area: c-avatar
+
+      img
+        border-radius: 50%
+        border: 1px solid white
+
+  &-body
+    padding: 10px 6px 6px
+
+  &-input
+    &-box
+      padding: 0 6px 6px
+
+    &-container
+      background-color: purple
+      border-radius: 16px
+      padding: 5px
+      display: grid
+      gap: 5px
+      grid-template-areas: "c-input c-button"
+      justify-content: center
+      grid-template-columns: 1fr auto
+      align-items: center
+
+      input
+        grid-area: c-input
+        background: none
+        outline: 0
+        font-size: 10px
+        padding: 0 10px
+        border: none
+
+      button
+        background: none
+        border: none
+        grid-area: c-button
+
+        figure
+          transform: rotate(180deg)
+          background: black
+          border-radius: 50%
+          width: 25px
+          height: 25px
+          display: flex
+          justify-content: center
+          align-items: center
+
+          img
+            width: 15px
+            height: 15px
+
+  &-message
+    margin-bottom: 10px
+    display: flex
+
+    > span
+      display: block
+      background: yellow
+      font-size: 8px
+      line-height: 11px
+      max-width: 59%
+      border-radius: 12px
+      padding: 6px 8px
+
+    &.gallery
+      margin-bottom: 3px
+
+      > span
+        max-width: 64%
+        display: flex
+        flex-wrap: wrap
+        gap: 9px
+        padding: 4px 0
+        background-color: transparent
+
+        picture
+          > img
+            border-radius: 10px
+            width: 39px
+
+    &.budget
+      > span
+        background-color: green
+        max-width: none
+        width: 75%
+        display: grid
+        grid-template-areas: "c-icon c-title c-price"
+        grid-template-columns: auto minmax(59%, .7fr) auto
+        grid-gap: 7px
+        padding-top: 10px
+        padding-bottom: 10px
+        align-items: center
+        color: $white
+
+        .icon
+          grid-area: c-icon
+          width: 12px
+          height: 12px
+          display: block
+          border: 1px solid $white
+          border-radius: 50%
+
+        .title
+          grid-area: c-title
+
+        .price
+          grid-area: c-price
+          font-size: 14px
+          font-weight: 700
+
+  &-from
+    > span
+      border-bottom-left-radius: 3px
+
+  &-to
+    flex-direction: row-reverse
+
+    > span
+      border-bottom-right-radius: 3px
+
+  &-back
+    grid-area: c-back
+
+  &-title
+    grid-area: c-title
+    color: $white
+
+    .user
+      &-name
+        font-size: 11px
+        line-height: 0
+        white-space: nowrap
+
+      &-status
+        font-size: 8px
+
+  &-menu
+    grid-area: c-menu
+  
