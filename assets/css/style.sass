@@ -272,3 +272,39 @@ body
       line-height: 27px
       color: $dark_grayish_violet
 
+@media screen and ( min-width: 998px )
+  .container
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 30px
+    align-items: center
+
+  .hero-content
+    padding-right: 40px
+    display: grid
+    align-self: center
+    grid-template-columns: repeat(6, 1fr)
+    grid-template-rows: 1fr
+
+  .chat-container
+    grid-column: 4/7
+    grid-row: 1
+    max-width: 246px
+    min-height: auto
+
+  .main-content
+    margin-top: 6px
+    margin-bottom: 0
+
+    h1
+      font-size: 40px
+      line-height: 28px
+      margin-bottom: 35px
+
+    p
+      font-size: 16px
+      line-height: 28px
+      text-align: left
+      white-space: pre-line
+    
+  
