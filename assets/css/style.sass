@@ -2,7 +2,6 @@ $pale_violet: hsl(276, 100%, 81%)
 $moderate_violet: hsl(276, 55%, 52%)
 $desaturated_dark_violet: hsl(271, 15%, 43%)
 $grayish_blue: hsl(206, 6%, 79%)
-$very_dark_desaturated_violet: hsl(271, 36%, 24%)
 $dark_grayish_violet: hsl(270, 7%, 64%)
 $light_magenta: hsl(293, 100%, 63%)
 $light_violet: hsl(264, 100%, 61%)
@@ -13,6 +12,22 @@ $very_light_magenta: hsl(289, 100%, 72%)
 
 $font_size: 16px
 $font-family: 'Rubik', sans-serif
+
+$shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px
+
+@mixin linearGradient($reversed: false)
+  @if($reversed)
+    background: rgb(233,66,255)
+    background: -moz-linear-gradient(93deg, rgba(233,66,255,1) 0%, rgba(136,56,255,1) 100%)
+    background: -webkit-linear-gradient(93deg, rgba(233,66,255,1) 0%, rgba(136,56,255,1) 100%)
+    background: linear-gradient(93deg, rgba(233,66,255,1) 0%, rgba(136,56,255,1) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e942ff",endColorstr="#8838ff",GradientType=1) 
+  @else
+    background: rgb(233,66,255)
+    background: -moz-linear-gradient(267deg, rgba(233,66,255,1) 0%, rgba(136,56,255,1) 100%)
+    background: -webkit-linear-gradient(267deg, rgba(233,66,255,1) 0%, rgba(136,56,255,1) 100%)
+    background: linear-gradient(267deg, rgba(233,66,255,1) 0%, rgba(136,56,255,1) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e942ff",endColorstr="#8838ff",GradientType=1)
 
 *,
 *::after,
@@ -30,17 +45,21 @@ body
 body
   font-size: 15px
   list-style: 1.2
-  background: purple
+  background: $light_grayish_violet
 
 .container
   max-width: 1440px
   margin: 0 auto
   height: 100%
-  padding: 64px 64px 16px
+  padding: 64px 40px 16px
+
+.hero-content
+  padding-left: 24px
+  padding-right: 24px
 
 .chat
   &-container
-    background: orange
+    background: $white
     border-radius: 32px
     min-height: 79vh
     
@@ -49,11 +68,12 @@ body
     display: grid
     grid-template-columns: repeat(6, 1fr)
     grid-template-rows: 1fr
+    box-shadow: $shadow
 
   &-content
     grid-column: 1/7
     grid-row: 1/1
-    background: aqua
+    background: $light_grayish_violet
     border-radius: 20px
 
   &-decorator
@@ -68,7 +88,8 @@ body
     margin-right: 10px
 
   &-header
-    background: red
+    @include linearGradient
+    
     border-top-left-radius: 19px
     border-top-right-radius: 19px
     border-bottom-left-radius: 6px
@@ -97,7 +118,7 @@ body
       padding: 0 6px 6px
 
     &-container
-      background-color: purple
+      background-color: $white
       border-radius: 16px
       padding: 5px
       display: grid
@@ -115,14 +136,18 @@ body
         padding: 0 10px
         border: none
 
+        &::placeholder
+          color: $grayish_blue
+
       button
         background: none
         border: none
         grid-area: c-button
+        cursor: pointer
 
         figure
           transform: rotate(180deg)
-          background: black
+          background: $very_dark_desaturated_violet
           border-radius: 50%
           width: 25px
           height: 25px
@@ -140,7 +165,7 @@ body
 
     > span
       display: block
-      background: yellow
+      background: $pale_violet
       font-size: 8px
       line-height: 11px
       max-width: 59%
@@ -157,6 +182,7 @@ body
         gap: 9px
         padding: 4px 0
         background-color: transparent
+        box-shadow: none
 
         picture
           > img
@@ -165,7 +191,7 @@ body
 
     &.budget
       > span
-        background-color: green
+        @include linearGradient($reversed: true)
         max-width: none
         width: 75%
         display: grid
@@ -182,7 +208,7 @@ body
           width: 12px
           height: 12px
           display: block
-          border: 1px solid $white
+          border: 1px solid $very_light_magenta
           border-radius: 50%
 
         .title
@@ -195,12 +221,17 @@ body
 
   &-from
     > span
+      background-color: lighten($pale_violet, 12%)
+      color: $moderate_violet
       border-bottom-left-radius: 3px
 
   &-to
     flex-direction: row-reverse
 
     > span
+      background-color: $white
+      box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px
+      color: $desaturated_dark_violet
       border-bottom-right-radius: 3px
 
   &-back
@@ -208,17 +239,36 @@ body
 
   &-title
     grid-area: c-title
-    color: $white
 
     .user
       &-name
         font-size: 11px
         line-height: 0
         white-space: nowrap
+        color: $white
 
       &-status
         font-size: 8px
+        color: $pale_violet
 
   &-menu
     grid-area: c-menu
   
+.main
+  &-content
+    margin-top: 62px
+    margin-bottom: 25px
+
+    h1
+      font-size: 38.2px
+      line-height: 28px
+      font-weight: 500
+      margin-bottom: 35px
+      color: $very_dark_desaturated_violet
+
+    p
+      text-align: center
+      font-size: 16px
+      line-height: 27px
+      color: $dark_grayish_violet
+
