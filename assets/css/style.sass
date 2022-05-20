@@ -53,6 +53,30 @@ body
   height: 100%
   padding: 64px 40px 16px
 
+  &.bg-bubbles
+    &::before
+      content: ' '
+      position: fixed
+      z-index: -1
+      top: -58vh
+      width: 503px
+      height: 948px
+      border-radius: 0 0 108% 103% / 0 0 59% 51%
+      background: linear-gradient(207.27deg, #e942ff 0%, #8838ff 90.32%)
+      left: -309px
+      // animation: backgroundLeft 8s ease-in-out infinite
+
+    &::after
+      content: ' '
+      position: fixed
+      z-index: -1
+      width: 510px
+      height: 900px
+      border-radius: 100% 100% 0 0 / 60% 60% 0 0
+      background-color: lighten($pale_violet, 15%)
+      top: 426px
+      right: -319px
+
 .hero-content
   padding-left: 24px
   padding-right: 24px
@@ -61,8 +85,8 @@ body
   &-container
     background: $white
     border-radius: 32px
-    min-height: 79vh
-    
+    width: 246px
+    margin: 0 auto
     padding: 11.2px
 
     display: grid
@@ -257,20 +281,34 @@ body
 .main
   &-content
     margin-top: 62px
-    margin-bottom: 25px
+    margin-bottom: 60px
 
     h1
       font-size: 38.2px
-      line-height: 28px
+      line-height: 42px
       font-weight: 500
       margin-bottom: 35px
       color: $very_dark_desaturated_violet
+      text-align: center
 
     p
       text-align: center
       font-size: 16px
       line-height: 27px
       color: $dark_grayish_violet
+
+@keyframes backgroundLeft
+  0%
+    top: -240px
+    transform: scale(1)
+
+  50%
+    top: -200px
+    transform: scale(.75)
+    
+  100%
+    top: -240px
+    transform: scale(1)
 
 @media screen and ( min-width: 998px )
   .container
@@ -279,18 +317,31 @@ body
     gap: 30px
     align-items: center
 
+    &.bg-bubbles
+      &::before
+        top: -248px
+        width: 503px
+        height: 948px
+        border-radius: 0 0 108% 103% / 0 0 59% 51%
+        left: -82px
+
+      &::after
+        width: 510px
+        height: 900px
+        border-radius: 100% 100% 0 0 / 60% 60% 0 0
+        top: 117px
+        right: -183px
+
   .hero-content
-    padding-right: 40px
     display: grid
     align-self: center
+    justify-self: end
     grid-template-columns: repeat(6, 1fr)
     grid-template-rows: 1fr
 
   .chat-container
-    grid-column: 4/7
+    grid-column: 1/7
     grid-row: 1
-    max-width: 246px
-    min-height: auto
 
   .main-content
     margin-top: 6px
@@ -300,11 +351,18 @@ body
       font-size: 40px
       line-height: 28px
       margin-bottom: 35px
+      text-align: left
 
     p
       font-size: 16px
       line-height: 28px
       text-align: left
       white-space: pre-line
-    
-  
+
+@media screen and ( min-width: 1220px )
+    .hero-content
+      padding-right: 78px
+      justify-self: initial
+
+    .chat-container
+      grid-column: 4/7
