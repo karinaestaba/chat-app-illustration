@@ -29,10 +29,6 @@ $shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 
     background: linear-gradient(267deg, rgba(233,66,255,1) 0%, rgba(136,56,255,1) 100%)
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e942ff",endColorstr="#8838ff",GradientType=1)
 
-@mixin animateElement($delay)
-  animation: slideToTop .2s ease 1s 1 normal forwards
-  animation-delay: ($delay)
-
 *,
 *::after,
 *::before
@@ -50,6 +46,40 @@ body
   font-size: 15px
   list-style: 1.2
   background: $light_grayish_violet
+
+input[type=radio]
+  display: none
+
+  + label
+    &.radio-label
+      position: relative
+      cursor: pointer
+
+    &::before
+      content: ''
+      background-color: transparent
+      border: 1px solid $very_light_magenta
+      cursor: pointer
+
+      padding: 5px
+      display: inline-block
+      position: relative
+      vertical-align: middle
+      border-radius: 50%
+
+  &:checked
+    + label::after
+      content: ''
+      display: block
+      position: absolute
+      top: 2px
+      left: 3px
+      width: 6px
+      height: 6px
+      border-width: 6px 0 0 0
+      -webkit-transform: rotate(45deg)
+      border-radius: 50%
+      background: $white
 
 .container
   max-width: 1440px
@@ -288,8 +318,47 @@ body
       color: $desaturated_dark_violet
       border-bottom-right-radius: 3px
 
-  &-back
+  &-action
     grid-area: c-back
+
+  &-menu
+    grid-area: c-menu
+
+  &-action,
+  &-menu
+    border: none
+    background: transparent
+    outline: 0
+    cursor: pointer
+
+  &-back
+    display: block
+    width: 8px
+    height: 8px
+    border-left: 2px solid $white
+    border-top: 2px solid $white
+    transform: rotate(-44deg)
+    border-top-right-radius: 1px
+    border-bottom-left-radius: 1px
+
+  &-options > span,
+  &-options::after,
+  &-options::before,
+    width: 3px
+    height: 3px
+    display: block
+    position: relative
+    background: $white
+    border-radius: 1px
+  
+  &-options
+    &::after
+      content: " "
+      margin-top: 2px
+
+    &::before
+      content: " "
+      margin-bottom: 2px
 
   &-title
     grid-area: c-title
@@ -304,9 +373,6 @@ body
       &-status
         font-size: 8px
         color: $pale_violet
-
-  &-menu
-    grid-area: c-menu
   
 .main
   &-content

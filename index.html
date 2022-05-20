@@ -15,9 +15,9 @@
     <section class="chat-container">
       <div class="chat-content">
         <header class="chat-header">
-          <figure class="chat-back">
-            <img src="assets/icons/back.svg" alt="Back" height="8">
-          </figure>
+          <button class="chat-action"> 
+            <span class="chat-back"></span>
+          </button>
 
           <picture>
             <img src="assets/images/avatar.jpg" alt="Profile picture" width="25">
@@ -28,9 +28,11 @@
             <small class="user-status">Available to Walk</small>
           </div>
 
-          <figure class="chat-menu">
-            <img src="assets/icons/menu.svg" alt="Menu" height="8">
-          </figure>
+          <button class="chat-menu">
+            <span class="chat-options">
+              <span></span>
+            </span>
+          </button>
         </header>
 
         <div class="chat-body">
@@ -80,7 +82,10 @@
 
           <p class="chat-message chat-from budget">
             <span>
-              <span class="icon"></span>
+              <span class="custom-radio">
+                <input type="radio" id="radio1" name="optionRadio">
+                <label for="radio1" class="radio-label"></label>
+              </span>
               <span class="title">30 minute walk</span>
               <span class="price">$29</span>
             </span>
@@ -88,7 +93,10 @@
 
           <p class="chat-message chat-from budget">
             <span>
-              <span class="icon"></span>
+              <span class="custom-radio">
+                <input type="radio" id="radio2" name="optionRadio">
+                <label for="radio2" class="radio-label"></label>
+              </span>
               <span class="title">1 hour walk</span>
               <span class="price">$49</span>
             </span>
