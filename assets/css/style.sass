@@ -208,7 +208,7 @@ input[type=radio]
         grid-area: c-button
         cursor: pointer
 
-        figure
+        span
           transform: rotate(180deg)
           background: $very_dark_desaturated_violet
           border-radius: 50%
@@ -217,6 +217,9 @@ input[type=radio]
           display: flex
           justify-content: center
           align-items: center
+
+          &:hover
+            background-color: lighten($very_dark_desaturated_violet, 10%)
 
           img
             width: 15px
