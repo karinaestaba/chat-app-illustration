@@ -85,7 +85,7 @@ input[type=radio]
   max-width: 1440px
   margin: 0 auto
   height: 100%
-  padding: 40px 40px 16px
+  padding: 64px 40px 16px
 
   &.bg-bubbles
     &::before
@@ -127,7 +127,7 @@ input[type=radio]
     grid-template-rows: 1fr
     box-shadow: $shadow
 
-    // animation: fadeIn .5s linear .5s 1 alternate backwards
+    animation: fadeIn .5s linear .5s 1 alternate backwards
 
   &-content
     grid-column: 1/7
@@ -226,10 +226,10 @@ input[type=radio]
 
   &-message
     margin-bottom: 10px
-    // opacity: 0
+    opacity: 0
     display: flex
     position: relative
-    // bottom: -200px
+    bottom: -200px
 
     > span
       display: block
@@ -293,27 +293,27 @@ input[type=radio]
       color: $moderate_violet
       border-bottom-left-radius: 3px
 
-    // @for $i from 1 through 8
-    //   &:nth-of-type(#{$i})
-    //     animation: slideToTop .2s ease 1s 1 normal forwards
-    //     animation-delay: (1.5s * $i)
+    @for $i from 1 through 8
+      &:nth-of-type(#{$i})
+        animation: slideToTop .2s ease 1s 1 normal forwards
+        animation-delay: (1.5s * $i)
 
   &-to
     flex-direction: row-reverse
 
-    // @for $i from 1 through 5
-    //   &:nth-of-type(#{$i})
-    //     animation: slideToTop .2s ease 1s 1 normal forwards
-    //     animation-delay: (1.5s * $i)
+    @for $i from 1 through 5
+      &:nth-of-type(#{$i})
+        animation: slideToTop .2s ease 1s 1 normal forwards
+        animation-delay: (1.5s * $i)
 
-    // &.gallery
-    //   picture
-    //     opacity: 0
+    &.gallery
+      picture
+        opacity: 0
 
-    //     @for $i from 1 through 3
-    //       &:nth-of-type(#{$i})
-    //         animation: slideToFade (.1s * $i) ease .5s 1 normal forwards
-    //         animation-delay: (3.1s + $i)
+        @for $i from 1 through 3
+          &:nth-of-type(#{$i})
+            animation: slideToFade (.1s * $i) ease .5s 1 normal forwards
+            animation-delay: (3.1s + $i)
 
     > span
       background-color: $white
